@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :clientes
-
+  authenticated :user do
+     resources :clientes
+     resources :fornecedors
+  end
   root to: 'visitors#index'
   devise_for :users
   resources :users

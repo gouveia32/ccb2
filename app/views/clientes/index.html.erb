@@ -1,11 +1,17 @@
 <%- model_class = Cliente -%>
 
 <div class="page-header">
-  <h2>.:<%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>:.&nbsp;&nbsp;&nbsp;&nbsp;
-  |<%= link_to t('.new', :default => t("helpers.links.new")),  new_cliente_path,  :class => 'btn btn-mini btn-primary' %>|</h2>
+  <ul class="span7">
+    <h1>.:<%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>:.</h1>
+  </ul>
+  <ul  class="span5 flickr_pagination">
+  <br>
+    <%= will_paginate @clientes, :container => false %>
+    <%= link_to t('.new', :default => t("helpers.links.new")),  new_cliente_path,  :class => 'btn btn-xs btn-primary' %>
+  </ul>
 </div>
 
-<table class="table table-condensed table-bordered">
+<table class="table table-condensed table-striped table-bordered">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
@@ -30,22 +36,15 @@
         <td><%= cliente.email %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_cliente_path(cliente), :class => 'btn btn-mini' %>
+                      edit_cliente_path(cliente), :class => 'btn btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       cliente_path(cliente),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Tem Certeza?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-xs btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<div class="apple_pagination" >
-    <div class="page_info">
-      <%= page_entries_info @clientes if @show_pagination %>
-     </div>
-         <%= will_paginate @clientes, :container => false -%>
-</div>
 

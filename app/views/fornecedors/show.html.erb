@@ -1,0 +1,47 @@
+<%- model_class = Fornecedor -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
+  <dd><%= @fornecedor.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contato_funcao) %>:</strong></dt>
+  <dd><%= @fornecedor.contato_funcao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contato_nome) %>:</strong></dt>
+  <dd><%= @fornecedor.contato_nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cgc_cpf) %>:</strong></dt>
+  <dd><%= @fornecedor.cgc_cpf %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:inscr_estadual) %>:</strong></dt>
+  <dd><%= @fornecedor.inscr_estadual %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:endereco) %>:</strong></dt>
+  <dd><%= @fornecedor.endereco %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cidade) %>:</strong></dt>
+  <dd><%= @fornecedor.cidade %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado) %>:</strong></dt>
+  <dd><%= @fornecedor.estado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cep) %>:</strong></dt>
+  <dd><%= @fornecedor.cep %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefone1) %>:</strong></dt>
+  <dd><%= @fornecedor.telefone1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefone2) %>:</strong></dt>
+  <dd><%= @fornecedor.telefone2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefone3) %>:</strong></dt>
+  <dd><%= @fornecedor.telefone3 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @fornecedor.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:obs) %>:</strong></dt>
+  <dd><%= @fornecedor.obs %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              fornecedors_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_fornecedor_path(@fornecedor), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              fornecedor_path(@fornecedor),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
