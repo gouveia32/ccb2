@@ -16,3 +16,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+//= require jquery.minicolors
+//= require jquery.minicolors.simple_form

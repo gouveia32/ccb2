@@ -545,3 +545,54 @@ h2. Useful Links
 | "Rails Starter Apps":http://railsapps.github.io/rails-examples-tutorials.html |                      "Rails Project Management":http://railsapps.github.io/rails-project-management.html |
 
 !https://cruel-carlota.pagodabox.com/3bea17f88e1f3dd4a44301dae5e45261(githalytics.com alpha)!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+MySQL 5.5 database added.  Please make note of these credentials:
+
+       Root User: adminCH5XbJ5
+   Root Password: 9kXr9C9V6Q7j
+   Database Name: ccb2
+
+Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+
+You can manage your new MySQL database by also embedding phpmyadmin.
+The phpmyadmin username and password will be the same as the MySQL credentials above.
+
+
+
+
+
+
+
+Your application has been created. Continue to the application overview page.
+
+Making code changes
+Install the Git client for your operating system, and from your command line run
+
+git clone ssh://55a7c463500446461b0000a6@ccb2-gouveia32.rhcloud.com/~/git/ccb2.git/
+cd ccb2/
+This will create a folder with the source code of your application. After making a change, add, commit, and push your changes.
+
+git add .
+git commit -m 'My changes'
+git push
+When you push changes the OpenShift server will report back its status on deploying your code. The server will run any of your configured deploy hooks and then restart the application.
+
+
+

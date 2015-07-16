@@ -1,92 +1,60 @@
-<%= form_for @fornecedor, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :nome, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :nome, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :contato_funcao, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :contato_funcao, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :contato_nome, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :contato_nome, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :cgc_cpf, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :cgc_cpf, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :inscr_estadual, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :inscr_estadual, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :endereco, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :endereco, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :cidade, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :cidade, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :estado, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :estado, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :cep, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :cep, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :telefone1, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :telefone1, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :telefone2, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :telefone2, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :telefone3, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :telefone3, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :email, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :email, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :obs, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :obs, :class => 'text_field' %>
-    </div>
-  </div>
+<%= simple_form_for @fornecedor, :html => { :class => 'form-vertical' } do |f| %>
+  <div class="row">
+    <ul class="span3">
+        <%= f.input :nome, :class => 'text_field span3' %>
+    </ul>
+    <ul class="span2">
+        <%= f.input :contato_funcao, :class => 'text_field span2' %>
+    </ul>
+    <ul class="span3">
+        <%= f.input :contato_nome, :class => 'text_field span3' %>
+    </ul>
+    <ul class="span2">
+        <%= f.input :cgc_cpf, :class => 'text_field span2' %>
+    </ul>
+    <ul class="span2">
+        <%= f.input :inscr_estadual, :class => 'text_field span2' %>
+    </ul>
+    <ul class="span4">
+        <%= f.input :endereco, :class => 'text_field span4' %>
+    </ul>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                fornecedors_path, :class => 'btn' %>
+    <ul class="span3">
+        <%= f.input :cidade, :class => 'text_field span3' %>
+    </ul>  
+    <ul class="span2">
+        <%= f.label "Estado" %>
+        <%= collection_select(:fornecedor, :estado, Estado.order('codigo ASC').all, :codigo, :nome, prompt: true) %>
+    </ul>  
+    <ul class="span2">
+        <%= f.input :cep, :class => 'text_field span2' %>
+    </ul>  
   </div>
+  
+  <div class="row">
+    <ul class="span2">
+        <%= f.input :telefone1, as: :tel %>
+    </ul>  
+    <ul class="span2">  
+        <%= f.input :telefone1, as: :tel %>
+    </ul>    
+    <ul class="span2">  
+        <%= f.input :telefone1, as: :tel %>
+    </ul>  
+    <ul class="span6">  
+        <%= f.input :email, placeholder: 'usuario@dominio.com', :class => 'text_field span4' %>
+    </ul>
+  </div>
+  
+  <div class="row">
+    <ul class="span12">  
+        <%= f.input :obs, :as => :text, :input_html => { :cols => 06, :rows => 4 } %>
+    </ul>
+    <ul class="span12">  
+      <%= f.submit nil, :class => 'btn btn-primary btn-medium' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  fornecedors_path, :class => 'btn btn-medium' %>
+    </ul>  
+  </div>
+  
 <% end %>

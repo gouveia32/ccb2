@@ -1,0 +1,44 @@
+<%= simple_form_for @linha, :html => { :class => 'form-vertical' } do |f| %>
+  <div class="row">
+    <ul class="span1">
+        <%= f.input :codigo, :class => 'text_field span1' %>
+    </ul>
+    <ul class="span3">
+        <%= f.input :nome, :class => 'text_field' %>
+    </ul>
+    <ul class="span2">
+        <%= f.input :material_nome, :class => 'text_field' %>
+    </ul>
+    <ul class="span2">
+        <%= f.input :material_fabricante, :class => 'text_field' %>
+    </ul>
+    <ul class="span2">
+        <%= f.input :material_tipo, :class => 'text_field' %>
+    </ul>
+    <ul class="span2">
+      <%= f.input :cor,  as: :minicolors, input_html: {data: {
+          minicolors: {theme: :bootstrap, position: :left, defaultValue: '#000000'}}} %>    
+      </ul>
+    <ul class="span1">
+        <%= f.input :estoque_1, :class => 'text_field' %>
+    </ul>
+    <ul class="span1">
+        <%= f.input :estoque_2, :class => 'text_field' %>
+    </ul>
+    <ul class="span1">
+        <%= f.input :minimo, :class => 'text_field' %>
+    </ul>
+    <ul class="span1">
+        <%= f.input :pedido, :class => 'text_field' %>
+    </ul>
+  </div>
+  
+  <hr />
+  <div class="row">
+    <ul class="span5">  
+      <%= f.submit nil, :class => 'btn btn-primary btn-medium' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  linhas_path, :class => 'btn btn-medium' %>
+    </ul>  
+  </div>
+<% end %>

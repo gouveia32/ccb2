@@ -1,0 +1,41 @@
+<%- model_class = Linha -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:codigo) %>:</strong></dt>
+  <dd><%= @linha.codigo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
+  <dd><%= @linha.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:material_nome) %>:</strong></dt>
+  <dd><%= @linha.material_nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:material_fabricante) %>:</strong></dt>
+  <dd><%= @linha.material_fabricante %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:material_tipo) %>:</strong></dt>
+  <dd><%= @linha.material_tipo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cor) %>:</strong></dt>
+  <dd><%= @linha.cor %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estoque_1) %>:</strong></dt>
+  <dd><%= @linha.estoque_1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estoque_2) %>:</strong></dt>
+  <dd><%= @linha.estoque_2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:minimo) %>:</strong></dt>
+  <dd><%= @linha.minimo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pedido) %>:</strong></dt>
+  <dd><%= @linha.pedido %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              linhas_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_linha_path(@linha), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              linha_path(@linha),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+  <%= link_to t('.new', :default => t("helpers.links.new")),  new_linha_path,  :class => 'btn btn-primary' %>
+
+</div>

@@ -1,7 +1,13 @@
 <%- model_class = Fornecedor -%>
 <div class="page-header">
-  <h3>.:<%=t '.title', :default => 'Fornecedores' %>:.&nbsp;&nbsp;&nbsp;&nbsp;
-  |<%= link_to t('.new', :default => t("helpers.links.new")),  new_fornecedor_path,  :class => 'btn btn-xs btn-primary' %>|</h3>
+  <ul class="span7">
+    <h1>.:<%=t '.title', :default => 'Fornecedores' %>:.</h1>
+  </ul>
+  <ul  class="span5 flickr_pagination">
+  <br>
+    <%= will_paginate @clientes, :container => false %>
+    <%= link_to t('.new', :default => t("helpers.links.new")),  new_fornecedor_path,  :class => 'btn btn-xs btn-primary' %>
+  </ul>
 </div>
 <table class="table table-condensed table-striped table-bordered">
   <thead>

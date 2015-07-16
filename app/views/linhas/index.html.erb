@@ -1,0 +1,53 @@
+<%- model_class = Linha -%>
+<div class="page-header">
+  <ul class="span7">
+    <h1>.:<%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>:.</h1>
+  </ul>
+  <ul  class="span5 flickr_pagination">
+  <br>
+    <%= will_paginate @linhas, :container => false %>
+    <%= link_to t('.new', :default => t("helpers.links.new")),  new_linha_path,  :class => 'btn btn-xs btn-primary' %>
+  </ul>
+</div>
+<table class="table table-condensed table-striped table-bordered">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:codigo) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:material_nome) %></th>
+      <th><%= model_class.human_attribute_name(:material_fabricante) %></th>
+      <th><%= model_class.human_attribute_name(:material_tipo) %></th>
+      <th><%= model_class.human_attribute_name(:cor) %></th>
+      <th><%= model_class.human_attribute_name(:estoque_1) %></th>
+      <th><%= model_class.human_attribute_name(:estoque_2) %></th>
+      <th><%= model_class.human_attribute_name(:minimo) %></th>
+      <th><%= model_class.human_attribute_name(:pedido) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @linhas.each do |linha| %>
+      <tr>
+        <td><%= link_to linha.codigo, linha_path(linha) %></td>
+        <td><%= linha.nome %></td>
+        <td><%= linha.material_nome %></td>
+        <td><%= linha.material_fabricante %></td>
+        <td><%= linha.material_tipo %></td>
+        <td><%= linha.cor %></td>
+        <td><%= linha.estoque_1 %></td>
+        <td><%= linha.estoque_2 %></td>
+        <td><%= linha.minimo %></td>
+        <td><%= linha.pedido %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_linha_path(linha), :class => 'btn btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      linha_path(linha),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

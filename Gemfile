@@ -35,3 +35,7 @@ end
 
 gem 'will_paginate', '~> 3.0'
 gem 'thin'
+
+gem 'simple_form'
+gem 'jquery-minicolors-rails'
+gem 'autonumeric-rails'
