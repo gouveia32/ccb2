@@ -1,41 +1,50 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
-gem 'rails', '4.1.4'
-gem 'sqlite3'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 
-gem "therubyracer"
-gem "twitter-bootstrap-rails"
+gem 'rails', '~> 3.2.16'
+gem 'rack', '~> 1.4.5'
 
-gem 'devise'
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_21]
-  gem 'quiet_assets'
-  gem 'rails_layout'
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+group :production, :mysql do
+  gem 'mysql2'
 end
+
+group :production, :postgresql do
+  gem 'pg'
+end
+
 group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-end
-group :test do
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'faker'
-  gem 'launchy'
-  gem 'selenium-webdriver'
+  gem 'sqlite3'
+  gem 'minitest'
+  gem 'thor', '= 0.14.6'
 end
 
-gem 'will_paginate', '~> 3.0'
-gem 'thin'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
 
-gem 'simple_form'
-gem 'jquery-minicolors-rails'
-gem 'autonumeric-rails'
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'debugger'
